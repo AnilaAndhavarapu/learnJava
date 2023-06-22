@@ -1,4 +1,4 @@
-package com.lean.java.pingu;
+package com.learn.java.pingu;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
