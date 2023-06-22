@@ -47,5 +47,31 @@ public class Utils {
         return dictionary;
     }
 
+    public static int[][] getMatrix(){
+        Random random = new Random();
+        int i = random.nextInt(10);
+        int j = random.nextInt(10);
+
+        int[][] matrix = new int[i][j];
+
+        for (int k = 0; k < i; k++) {
+            for (int l = 0; l < j; l++) {
+                matrix[k][l] = random.nextInt(200);
+            }
+        }
+        return matrix;
+    }
+
+    public static String getRandomSentence(int length){
+        ArrayList<String> list = generateRandomStrings(length);
+        String SPACE = " ";
+        StringBuilder sb = new StringBuilder();
+        for (String s : list) {
+            sb.append(s);
+            sb.append(SPACE);
+        }
+        return sb.toString().trim();
+    }
+
 }
 
