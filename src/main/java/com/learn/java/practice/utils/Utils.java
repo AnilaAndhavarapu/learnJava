@@ -49,8 +49,8 @@ public class Utils {
 
     public static int[][] getMatrix(){
         Random random = new Random();
-        int i = random.nextInt(10);
-        int j = random.nextInt(10);
+        int i = 5;
+        int j = 4;
 
         int[][] matrix = new int[i][j];
 
