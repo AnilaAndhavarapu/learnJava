@@ -1,6 +1,5 @@
 package com.learn.java.practice.assignments_Janhavi.day_4;
 
-import com.learn.java.practice.assignments_Janhavi.assignments_Anila.day_4.objects.assign1.*;
 import com.learn.java.practice.assignments_Janhavi.day_4.objects.assign1.*;
 
 import static com.learn.java.practice.utils.Utils.print;
