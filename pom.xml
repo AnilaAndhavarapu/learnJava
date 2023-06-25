@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.lean.java</groupId>
-	<artifactId>pingu</artifactId>
+	<artifactId>learnJava</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>leanJavaWithPingu</name>
 	<description>Demo project for Spring Boot</description>

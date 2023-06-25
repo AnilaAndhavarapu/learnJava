@@ -1,0 +1,10 @@
+package com.learn.java.practice.assignments_Janhavi.day_5;
+
+public class Assign3 {
+    public static void main(String[] args) {
+
+        String num = "789";
+        // convert string num into integer without using parseInt method
+        
+    }
+}
