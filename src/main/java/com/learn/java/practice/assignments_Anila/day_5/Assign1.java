@@ -9,8 +9,8 @@ public class Assign1 {
         List<String> stringList = Arrays.asList("Pingu", "Tingu", "Jingu", "Tingu", "Mangu");
 
         // create a method which will take a list<String> as input
-        // and returns a list of unique Strings
+        // and returns a list of distinct Strings
         // Note: you cannot use list.contains method
-        // explore right algo / Data Structure for above
+        // explore suitable algo / Data Structure for above
     }
 }

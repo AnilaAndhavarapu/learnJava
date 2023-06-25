@@ -9,5 +9,8 @@ public class Assign2 {
         // Panagram --> write a method to check if a given string sentence is panagram or not
         // A panagram is a sentence or string which uses all 26 alphabets.
         // Example : --> “The quick brown fox jumps over the lazy dog”   is a panagram
+
+        // Palindrome --> write a method to check if a given string is a palindrome
+        // Example : --> abba/ acbca are a palindromes
     }
 }
