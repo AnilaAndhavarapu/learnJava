@@ -1,0 +1,60 @@
+Functional Interfaces
+Static and default methods in interfaces
+Diamond problem with new interfaces
+Lambda expressions
+Method reference
+Threads
+Thread pool
+Futures
+Deadlock
+Synchronization
+    with static methods
+    with non-static methods
+    class level Synchronization
+Collections
+    List
+    ArrayList
+    LinkedList
+    Vector
+    Set
+    HashSet
+    TreeSet
+    Queue
+    Dequeue
+    Map
+    Hashmap
+    TreeMap
+    HashTable
+    Concurrent Hash Map
+    Trees
+    Graphs
+        Adjacency Matrix
+        Adjacency List
+Singleton Class implementation
+Immutable class implementation
+JVM
+Java Data Model
+Garbage Collection in Java
+String Pool Area
+Exception Handling
+File Handling
+Serialization and De-Serialization
+Enums
+    with interfaces
+    with parent enums
+    with parent classes
+Streams
+    Parallel streams
+    group by
+    collect
+    map
+    flat map
+    filter
+    reduce
+OOPS
+    Inheritance
+    Abstraction
+    Encapsulation
+    Polymorphism
+        overloading
+        overriding
