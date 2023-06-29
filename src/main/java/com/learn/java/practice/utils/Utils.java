@@ -72,7 +72,6 @@ public class Utils {
         }
         return sb.toString().trim();
     }
-
     public static void print(String str){
         System.out.println(str);
     }

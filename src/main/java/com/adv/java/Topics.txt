@@ -1,4 +1,9 @@
 Functional Interfaces
+    Predefined functional interfaces
+        Supplier
+        Consumer
+        Predicate
+        Function
 Static and default methods in interfaces
 Diamond problem with new interfaces
 Lambda expressions
@@ -58,3 +63,4 @@ OOPS
     Polymorphism
         overloading
         overriding
+Generics
