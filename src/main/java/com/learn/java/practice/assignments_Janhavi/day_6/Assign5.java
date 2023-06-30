@@ -5,7 +5,7 @@ import com.learn.java.practice.assignments_Janhavi.day_6.enums.Seasons;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.learn.java.practice.assignments_Anila.day_6.enums.Seasons.*;
+import static com.learn.java.practice.assignments_Janhavi.day_6.enums.Seasons.*;
 
 public class Assign5 {
 
