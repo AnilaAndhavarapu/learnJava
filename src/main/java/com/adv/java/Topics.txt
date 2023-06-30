@@ -4,10 +4,10 @@ Functional Interfaces
         Consumer
         Predicate
         Function
-Static and default methods in interfaces
-Diamond problem with new interfaces
-Lambda expressions
-Method reference
+    Static and default methods in interfaces
+    Diamond inheritance problem with new interfaces
+    Lambda expressions
+    Method reference
 Threads
 Thread pool
 Futures
