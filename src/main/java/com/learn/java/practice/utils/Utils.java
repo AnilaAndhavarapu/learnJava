@@ -4,6 +4,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
+import java.util.function.Consumer;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Utils {
 
@@ -29,6 +32,22 @@ public class Utils {
             generatedObjects.add(random.nextInt(100));
         }
         return generatedObjects;
+    }
+
+    public static HashMap<Integer, String> generateRandomIntToStrMap(int count){
+        HashMap<Integer, String> map = new HashMap<>();
+        List<String> dictionary = loadDictionary();
+        int dictionarySize = dictionary.size();
+        IntStream.range(0, count).forEach(i -> map.put(i, dictionary.get(random.nextInt(dictionarySize))));
+        return map;
+    }
+
+    public static HashMap<String, String> generateRandomStrToStrMap(int count){
+        HashMap<String, String> map = new HashMap<>();
+        List<String> dictionary = loadDictionary();
+        int dictionarySize = dictionary.size();
+        IntStream.range(0, count).forEach(i -> map.put(dictionary.get(random.nextInt(dictionarySize)), dictionary.get(random.nextInt(dictionarySize))));
+        return map;
     }
 
     private static List<String> loadDictionary() {
@@ -76,5 +95,12 @@ public class Utils {
         System.out.println(str);
     }
 
+    public static <T> Consumer<T> print(){
+        return x -> System.out.print(x + ", ");
+    }
+
+    public static <T> Consumer<T> printWithPrefix(String prefix){
+        return x -> System.out.print(prefix + " " + x + ", ");
+    }
 }
 
