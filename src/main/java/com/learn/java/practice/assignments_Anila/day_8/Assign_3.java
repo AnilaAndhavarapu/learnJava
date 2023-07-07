@@ -1,5 +1,8 @@
 package com.learn.java.practice.assignments_Anila.day_8;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Assign_3 {
 
     public static void main(String[] args) {
@@ -9,5 +12,18 @@ public class Assign_3 {
         // Find the substring with only unique chars.
         // Eg: "xyz" is a substring with all unique chars
 
+        List<Character> cl= new ArrayList<>();
+        outerloop:
+        for(int i = 0; i < s.length(); i++) {
+            for (int j = 0; j < cl.size(); j++) {
+                if (cl.get(j).equals(s.charAt(i))){
+                   // s.;
+                  continue outerloop;
+                }
+            }
+            cl.add(s.charAt(i));
+        }
+
+        System.out.println(cl);
     }
 }

@@ -11,118 +11,136 @@ public class Assign_2 {
         CustomLinkedList list = new CustomLinkedList();
 
         list.add(1);
-        list.add(2);
-        System.out.println(list.getSize());
-        list.add(5);
-        list.add(8);
-        list.add(9);
-        System.out.println(list.getSize());
-        list.setAtIndex(2,21);
-        System.out.println("updated list");
-        System.out.println(list.getAtIndex(2));
-        System.out.println("final list");
-        for(int i=0; i< list.getSize();i++) {
-            System.out.println(list.getAtIndex(i));
-        }
-        list.removeAtIndex(0);
-        System.out.println("final list");
-        for(int i=0; i< list.getSize();i++) {
-            System.out.println(list.getAtIndex(i));
-        }
+        print(list);
 
+        list.add(2);
+        print(list);
+
+        list.add(5);
+        print(list);
+
+        list.add(8);
+        print(list);
+
+        list.add(9);
+        print(list);
+
+        System.out.println("Before remove size : " + list.getSize());
+        list.remove();
+        System.out.println("After remove size : " + list.getSize());
+        print(list);
+
+        list.removeAtIndex(0);
+        print(list);
+
+        list.setAtIndex(2,10);
+        print(list);
+    }
+
+    public static void print(CustomLinkedList list) throws Exception {
+        for (int i = 0; i < list.getSize(); i++) {
+            System.out.print(list.getAtIndex(i) + ", ");
+        }
+        System.out.println("");
     }
 }
 
-class CustomLinkedList{
+class CustomLinkedList {
     Node head;
-    Node tail;
     int count = 0;
 
-    public CustomLinkedList(){
-        head = new Node();
-        tail = new Node();
-    }
-
-    public void add(int value){
+    public void add(int value) {
         Node newNode = new Node(value);
-        Node currNode = head;
-        while(currNode.next != null){
-            currNode = currNode.next;
+        if(head == null){
+            head = newNode;
+        }else{
+            Node currNode = head;
+            while (currNode.next != null) {
+                currNode = currNode.next;
+            }
+            currNode.next = newNode;
         }
-        currNode.next = newNode;
         count++;
     }
 
-    public boolean addAtIndex(int index){
+    public boolean addAtIndex(int index) {
         return true;
     }
 
-    public void setAtIndex(int index, int setnum) throws Exception{
-       if(index > getSize()){
-          throw new Exception("Index out of Bound  " + index + " for " +  getSize());
-       }
+    public void setAtIndex(int index, int setnum) throws Exception {
+        if (index >= getSize()) {
+            throw new Exception("Index out of Bound  " + index + " for " + getSize());
+        }
         int counter = 0;
         Node curr = head;
-        while(counter < index){
+        while (counter < index) {
             curr = curr.next;
             counter++;
         }
         curr.value = setnum;
-
-
     }
 
-    public boolean remove(int value){
+    public boolean remove() {
+        Node currNode = head;
+        Node prevNode = currNode;
+        while (currNode.next != null) {
+            prevNode = currNode;
+            currNode = currNode.next;
+        }
+        prevNode.next = null;
+        count--;
         return true;
     }
 
-    public void removeAtIndex(int index)throws NullPointerException{
+    public boolean removeAtIndex(int index) throws Exception {
+        if (index >= getSize()) {
+            throw new Exception("Index out of Bound  " + index + " for " + getSize());
+        }
         int counter = 0;
         Node currNode = head;
         Node prevNode = currNode;
-//        if(counter==index)
-//        {
-//            currNode = currNode.next;
-//            head = currNode;
-//            count--;
-//        }else {
-            while (counter <= index) {
-                prevNode = currNode;
-                currNode = currNode.next;
-                counter++;
-            }
-            prevNode.next = currNode.next;
-            count--;
- //       }
 
+        while (counter < index) {
+            prevNode = currNode;
+            currNode = currNode.next;
+            counter++;
+        }
+
+        if(currNode == head){
+            head = head.next;
+        }
+        prevNode.next = currNode.next;
+        count--;
+        return true;
     }
 
-    public int getAtIndex(int index) throws Exception{
-        if(index > getSize()){
-            throw new Exception("Index out of Bound  " + index + " for " +  getSize());
+    public int getAtIndex(int index) throws Exception {
+        if (index >= getSize()) {
+            throw new Exception("Index out of Bound  " + index + " for " + getSize());
         }
 
         int counter = 0;
         Node currNode = head;
-        while(counter < index){
+        while (counter < index) {
             currNode = currNode.next;
             counter++;
         }
         return currNode.value;
     }
 
-    public int getSize(){
+    public int getSize() {
         return count;
     }
 }
 
-class Node{
+class Node {
     int value;
     Node next;
 
-    Node(){}
+    Node() {
+    }
 
-    public Node(int value){
+    public Node(int value) {
         this.value = value;
     }
 
