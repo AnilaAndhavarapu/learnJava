@@ -1,5 +1,7 @@
 package com.learn.java.practice.utils;
 
+import com.learn.java.practice.vo.interfaces.ListInterface;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -101,6 +103,13 @@ public class Utils {
 
     public static <T> Consumer<T> printWithPrefix(String prefix){
         return x -> System.out.print(prefix + " " + x + ", ");
+    }
+
+    public static void print(ListInterface list) throws Exception {
+        for (int i = 0; i < list.getSize(); i++) {
+            System.out.print(list.getAtIndex(i) + ", ");
+        }
+        System.out.println("Size : " + list.getSize());
     }
 }
 

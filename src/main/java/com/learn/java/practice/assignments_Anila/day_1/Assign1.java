@@ -13,9 +13,11 @@ public class Assign1 {
         System.out.println("Sorting the students");
 
         // Sort the above list on Names first and then if the names are same sort it by roll number.
-        Iterator<Student> custIterator = studentList.iterator();
-        Collections.sort(studentList, new CustomComparator1());
-        System.out.println(studentList);
+        CustomComparator1 comp1 = new CustomComparator1();
+        Collections.sort(studentList);
+        System.out.println("Using Comparable: " + studentList);
+        Collections.sort(studentList, comp1);
+        System.out.println("Using Custom Comparator " + studentList);
     }
 
     private static List<Student> getListOfStudents(int count){

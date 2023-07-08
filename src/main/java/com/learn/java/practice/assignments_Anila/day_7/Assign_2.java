@@ -1,6 +1,8 @@
 package com.learn.java.practice.assignments_Anila.day_7;
 
-import java.util.LinkedList;
+import com.learn.java.practice.vo.interfaces.ListInterface;
+
+import static com.learn.java.practice.utils.Utils.print;
 
 public class Assign_2 {
     public static void main(String[] args) throws Exception {
@@ -26,7 +28,7 @@ public class Assign_2 {
         print(list);
 
         System.out.println("Before remove size : " + list.getSize());
-        list.remove();
+        list.remove(9);
         System.out.println("After remove size : " + list.getSize());
         print(list);
 
@@ -36,36 +38,11 @@ public class Assign_2 {
         list.setAtIndex(2,10);
         print(list);
     }
-
-    public static void print(CustomLinkedList list) throws Exception {
-        for (int i = 0; i < list.getSize(); i++) {
-            System.out.print(list.getAtIndex(i) + ", ");
-        }
-        System.out.println("");
-    }
 }
 
-class CustomLinkedList {
+class CustomLinkedList implements ListInterface<Integer> {
     Node head;
     int count = 0;
-
-    public void add(int value) {
-        Node newNode = new Node(value);
-        if(head == null){
-            head = newNode;
-        }else{
-            Node currNode = head;
-            while (currNode.next != null) {
-                currNode = currNode.next;
-            }
-            currNode.next = newNode;
-        }
-        count++;
-    }
-
-    public boolean addAtIndex(int index) {
-        return true;
-    }
 
     public void setAtIndex(int index, int setnum) throws Exception {
         if (index >= getSize()) {
@@ -80,7 +57,28 @@ class CustomLinkedList {
         curr.value = setnum;
     }
 
-    public boolean remove() {
+    @Override
+    public void add(Integer value) {
+        Node newNode = new Node(value);
+        if(head == null){
+            head = newNode;
+        }else{
+            Node currNode = head;
+            while (currNode.next != null) {
+                currNode = currNode.next;
+            }
+            currNode.next = newNode;
+        }
+        count++;
+    }
+
+    @Override
+    public void addAtIndex(int index, Integer value) {
+
+    }
+
+    @Override
+    public void remove(Integer value) {
         Node currNode = head;
         Node prevNode = currNode;
         while (currNode.next != null) {
@@ -89,10 +87,10 @@ class CustomLinkedList {
         }
         prevNode.next = null;
         count--;
-        return true;
     }
 
-    public boolean removeAtIndex(int index) throws Exception {
+    @Override
+    public void removeAtIndex(int index) throws Exception {
         if (index >= getSize()) {
             throw new Exception("Index out of Bound  " + index + " for " + getSize());
         }
@@ -111,10 +109,9 @@ class CustomLinkedList {
         }
         prevNode.next = currNode.next;
         count--;
-        return true;
     }
 
-    public int getAtIndex(int index) throws Exception {
+    public Integer getAtIndex(int index) throws Exception {
         if (index >= getSize()) {
             throw new Exception("Index out of Bound  " + index + " for " + getSize());
         }

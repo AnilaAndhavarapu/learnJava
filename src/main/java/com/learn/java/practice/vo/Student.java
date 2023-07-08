@@ -2,7 +2,7 @@ package com.learn.java.practice.vo;
 
 import java.util.Objects;
 
-public class Student {
+public class Student implements Comparable<Student>{
 
     private int rollNum;
     private String name;
@@ -22,9 +22,9 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "rollNum=" + rollNum +
-                ", name='" + name + '\'' +
+        return "{" +
+                "" + rollNum +
+                ", '" + name + '\'' +
                 '}';
     }
 
@@ -39,5 +39,10 @@ public class Student {
     @Override
     public int hashCode() {
         return Objects.hash(getRollNum(), getName());
+    }
+
+    @Override
+    public int compareTo(Student anotherStudent) {
+        return ((Integer) this.rollNum).compareTo(anotherStudent.getRollNum());
     }
 }

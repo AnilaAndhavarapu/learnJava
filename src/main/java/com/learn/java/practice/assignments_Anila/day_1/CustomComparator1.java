@@ -8,7 +8,9 @@ class CustomComparator1 implements Comparator<Student> {
 
     @Override
     public int compare(Student s1, Student s2) {
-        int nameCompare = s1.getName().compareTo(s2.getName());
+        String name1 = s1.getName();
+        String name2 = s2.getName();
+        int nameCompare = name1.compareTo(name2);
         int rollNumCompare = s1.getRollNum() - s2.getRollNum();
         return (nameCompare == 0) ? rollNumCompare : nameCompare;
     }

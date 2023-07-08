@@ -3,55 +3,55 @@ package com.learn.java.practice.assignments_Janhavi.day_8;
 public class Assign_1 {
     public static void main(String[] args) throws Exception {
         // Implement doubly linked list
-        CustomDoubleLinkedList list=new CustomDoubleLinkedList();
+        CustomDoubleLinkedList list = new CustomDoubleLinkedList();
         list.add(1);
         list.add(2);
         list.add(3);
         list.add(4);
         print(list);
     }
+
     public static void print(CustomDoubleLinkedList list) throws Exception {
-        for(int i=0; i< list.getSize();i++) {
-            System.out.print(list.getAtIndex(i)+" ");
+        for (int i = 0; i < list.getSize(); i++) {
+            System.out.print(list.getAtIndex(i) + " ");
         }
-        System.out.print("size"+list.getSize());
+        System.out.print("size" + list.getSize());
     }
 
 }
 
 
-class CustomDoubleLinkedList{
+class CustomDoubleLinkedList {
     // Implement
     // add, addAtIndex
     // remove element, removeAtIndex
     // size
     // set at Index methods
 
-    Node head=null;
-    Node tail=null;
-    int count=0;
+    Node head;
+    Node tail;
+    int count = 0;
 
-    public void add(int value)
-    {
-        Node newNode=new Node(value);
+    public void add(int value) {
+        Node newNode = new Node(value);
 
-        if(head==null)
-        {
-            head=newNode;
-            tail=newNode;
-        }else{
+        if (head == null) {
+            head = newNode;
+            tail = newNode;
+        } else {
             tail.setNextNode(newNode);
             head.setPreviousNode(tail);
-            head=tail;
-            tail=newNode;
+            head = tail;
+            tail = newNode;
 
         }
         count++;
     }
-  public int getSize()
-  {
-      return count;
-  }
+
+    public int getSize() {
+        return count;
+    }
+
     public int getAtIndex(int index) throws Exception {
         if (index > getSize()) {
             throw new Exception("Index out of Bound  " + index + " for " + getSize());
@@ -59,7 +59,7 @@ class CustomDoubleLinkedList{
 
         int counter = 0;
         Node currNode = head;
-        while(counter < index){
+        while (counter < index) {
             currNode = currNode.next;
             counter++;
         }
@@ -67,24 +67,23 @@ class CustomDoubleLinkedList{
 
     }
 
-    public void addAtIndex(int index, int value)
-    {
+    public void addAtIndex(int index, int value) {
 
     }
 
 
 }
 
-class Node{
+class Node {
     int value;
     Node next;
     Node previous;
 
 
+    Node() {
+    }
 
-    Node(){}
-
-    public Node(int value){
+    public Node(int value) {
         this.value = value;
     }
 
@@ -96,16 +95,19 @@ class Node{
     public void setValue(int value) {
         this.value = value;
     }
-    public Node getNextNode(){
+
+    public Node getNextNode() {
         return next;
     }
+
     public void setNextNode(Node next) {
         this.next = next;
     }
 
-    public Node getPreviousNode(){
+    public Node getPreviousNode() {
         return previous;
     }
+
     public void setPreviousNode(Node previous) {
         this.previous = previous;
     }

@@ -1,6 +1,7 @@
 package com.learn.java.practice.assignments_Anila.day_8;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Assign_3 {
@@ -22,6 +23,8 @@ public class Assign_3 {
             }
             cl.add(s.charAt(i));
         }
+
+        LinkedList<Integer> list = new LinkedList<>();
 
         System.out.println(cl);
     }
