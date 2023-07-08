@@ -17,7 +17,6 @@ public class Assign_3 {
         for(int i = 0; i < s.length(); i++) {
             for (int j = 0; j < cl.size(); j++) {
                 if (cl.get(j).equals(s.charAt(i))){
-                   // s.;
                   continue outerloop;
                 }
             }
