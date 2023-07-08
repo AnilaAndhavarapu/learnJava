@@ -1,20 +1,27 @@
 package com.learn.java.practice.assignments_Anila.day_8;
 
-
 public class Assign_1 {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         // Implement doubly linked list
-        CustomDoubleLinkedList list=new CustomDoubleLinkedList();
+        CustomDoubleLinkedList list = new CustomDoubleLinkedList();
+
         list.add(1);
         print(list);
-    }
-    public static void print(CustomDoubleLinkedList list) throws Exception {
-        for(int i=0; i< list.getSize();i++) {
-            System.out.print(list.getAtIndex(i)+" ");
-        }
-        System.out.print("size"+list.getSize());
+
+        list.add(2);
+        print(list);
+
+        list.add(3);
+        print(list);
+
     }
 
+    public static void print(CustomDoubleLinkedList list){
+        for (int i = 0; i < list.getSize(); i++) {
+            System.out.print(list.getAtIndex(i) + ", ");
+        }
+        System.out.println("Size : " + list.getSize());
+    }
 }
 
 // Implement
@@ -24,85 +31,46 @@ public class Assign_1 {
 // set at Index methods
 
 class CustomDoubleLinkedList{
-    // Implement
-    // add, addAtIndex
-    // remove element, removeAtIndex
-    // size
-    // set at Index methods
+    Node head;
+    Node tail;
+    int count;
 
-    Node head=null;
-    Node tail=null;
-    int count=0;
-
-    public void add(int value)
-    {
-        Node newNode=new Node(value);
-
-        if(head==null)
-        {
-            head=newNode;
-            tail=newNode;
-        }else{
-            tail.setNextNode(newNode);
-            head.setPreviousNode(tail);
-            tail=newNode;
+    public void add(int value){
+        Node newNode = new Node(value);
+        if(head == null){
+            head = newNode;
+            tail = head;
+            count++;
+            return;
         }
+        Node currNode = tail;
+        tail = newNode;
+        currNode.next = newNode;
+        newNode.prev = currNode;
         count++;
     }
-    public int getSize()
-    {
-        return count;
-    }
-    public int getAtIndex(int index) throws Exception {
-        if (index > getSize()) {
-            throw new Exception("Index out of Bound  " + index + " for " + getSize());
-        }
-
-        int counter = 0;
+    public int getAtIndex(int index){
         Node currNode = head;
+        int counter = 0;
         while(counter < index){
             currNode = currNode.next;
             counter++;
         }
         return currNode.value;
-
     }
 
-
+    public int getSize(){
+        return count;
+    }
 }
 
 class Node{
     int value;
     Node next;
-    Node previous;
-
-
+    Node prev;
 
     Node(){}
-
-    public Node(int value){
+    Node(int value){
         this.value = value;
-    }
-
-
-    public int getValue() {
-        return value;
-    }
-
-    public void setValue(int value) {
-        this.value = value;
-    }
-    public Node getNextNode(){
-        return next;
-    }
-    public void setNextNode(Node next) {
-        this.next = next;
-    }
-
-    public Node getPreviousNode(){
-        return previous;
-    }
-    public void setPreviousNode(Node previous) {
-        this.previous = previous;
     }
 }
