@@ -18,6 +18,14 @@ public class Assign_1 {
         list.add(3);
         print(list);
 
+        list.addAtIndex(1, 22);
+        print(list);
+
+        list.remove(2);
+        print(list);
+
+        list.removeAtIndex(2);
+        print(list);
     }
 }
 
@@ -26,10 +34,13 @@ class CustomDoubleLinkedList implements ListInterface<Integer> {
     Node tail;
     int count;
 
-    public Integer getAtIndex(int index){
+    public Integer getAtIndex(int index) throws Exception {
+        if(index >= getSize()){
+            throw new Exception("Index is greater than size of the list");
+        }
         Node currNode = head;
         int counter = 0;
-        while(counter < index){
+        while (counter < index) {
             currNode = currNode.next;
             counter++;
         }
@@ -39,7 +50,7 @@ class CustomDoubleLinkedList implements ListInterface<Integer> {
     @Override
     public void add(Integer value) {
         Node newNode = new Node(value);
-        if(head == null){
+        if (head == null) {
             head = newNode;
             tail = head;
             count++;
@@ -53,32 +64,99 @@ class CustomDoubleLinkedList implements ListInterface<Integer> {
     }
 
     @Override
-    public void addAtIndex(int index, Integer value) {
+    public void addAtIndex(int index, Integer value) throws Exception{
+        if(index >= getSize()){
+            throw new Exception("Index out of bound for " + index + " in " + getSize());
+        }
+        int counter = 0;
+        Node newNode = new Node(value);
+        Node currNode = head;
+        while (counter < index) {
+            currNode = currNode.next;
+            counter++;
+        }
+        newNode.prev = currNode.prev;
+        currNode.prev.next = newNode;
+        currNode.prev = newNode;
+        newNode.next = currNode;
+        count++;
+    }
+
+    @Override
+    public void remove(Integer value) throws Exception {
+        Node currNode = head;
+
+        while (currNode.value != value && currNode != tail) {
+            currNode = currNode.next;
+        }
+
+        if (currNode == head) {
+            head = currNode.next;
+            count--;
+        }
+
+        if (currNode == tail) {
+            if (currNode.value != value) {
+                throw new Exception("Value not found in list");
+            }
+            tail = currNode;
+            tail.next = null;
+            count--;
+        }
+
+        currNode.prev.next = currNode.next;
+        currNode.next = currNode.prev;
+        count--;
 
     }
 
     @Override
-    public void remove(Integer value) {
+    public void removeAtIndex(int index) throws Exception {
+        if(index >= getSize()){
+            throw new Exception("Index out of bound for " + index + " in " + getSize());
+        }
 
+        if (index == 0) {
+            head = head.next;
+            count--;
+            return;
+        }
+
+        int counter = 0;
+        Node currNode = head;
+
+        while (counter < index) {
+            currNode = currNode.next;
+            counter++;
+        }
+
+        if (currNode == tail) {
+            tail = currNode.prev;
+            tail.next = null;
+            count--;
+            return;
+        }
+
+        currNode.next.prev = currNode.prev;
+        currNode.prev.next = currNode.next;
+
+        count--;
     }
 
-    @Override
-    public void removeAtIndex(int index) {
-
-    }
-
-    public int getSize(){
+    public int getSize() {
         return count;
     }
 }
 
-class Node{
+class Node {
     int value;
     Node next;
     Node prev;
 
-    Node(){}
-    Node(int value){
+    Node() {
+    }
+
+    Node(int value) {
         this.value = value;
     }
 }

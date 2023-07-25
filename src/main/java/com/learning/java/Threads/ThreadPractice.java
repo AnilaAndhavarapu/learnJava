@@ -1,4 +1,4 @@
-package com.learning.java;
+package com.learning.java.Threads;
 
 public class ThreadPractice {
 
@@ -7,6 +7,7 @@ public class ThreadPractice {
         // Thread by extending thread class
         CustomThread th1 = new CustomThread();
         th1.start(); // using start method of thread class which in turn calls run method
+        System.out.println("th1 started" );
 
         // Thread by implementing runnable interface
         Thread th2 = new Thread(new CustomRunnable());

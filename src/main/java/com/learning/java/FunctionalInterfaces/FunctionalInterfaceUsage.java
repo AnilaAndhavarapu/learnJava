@@ -1,4 +1,4 @@
-package com.learning.java;
+package com.learning.java.FunctionalInterfaces;
 
 public class FunctionalInterfaceUsage {
 

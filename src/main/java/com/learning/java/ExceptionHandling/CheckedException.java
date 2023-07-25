@@ -1,4 +1,4 @@
-package com.learning.java;
+package com.learning.java.ExceptionHandling;
 
 public class CheckedException extends Exception{
 
