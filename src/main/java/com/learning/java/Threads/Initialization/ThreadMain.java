@@ -1,4 +1,4 @@
-package com.learning.java.Threads;
+package com.learning.java.Threads.Initialization;
 
 public class ThreadMain {
 

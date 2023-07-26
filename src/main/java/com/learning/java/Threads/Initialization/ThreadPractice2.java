@@ -1,9 +1,4 @@
-package com.learning.java.Threads;
-
-import java.util.AbstractList;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.locks.Lock;
+package com.learning.java.Threads.Initialization;
 
 public class ThreadPractice2 {
 

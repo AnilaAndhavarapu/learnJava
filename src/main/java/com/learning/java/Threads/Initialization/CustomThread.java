@@ -1,4 +1,4 @@
-package com.learning.java.Threads;
+package com.learning.java.Threads.Initialization;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
