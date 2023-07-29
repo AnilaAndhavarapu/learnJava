@@ -24,6 +24,10 @@ public class Employee {
         return dept;
     }
 
+    public void setDept(String department) {
+        dept = department;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +

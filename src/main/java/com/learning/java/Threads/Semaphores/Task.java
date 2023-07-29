@@ -20,12 +20,16 @@ public class Task implements Runnable{
         try {
             System.out.println(Thread.currentThread().getName() + ":: Semaphore available permits : " + semaphore.availablePermits());
             System.out.println(ANSI_BLUE + Thread.currentThread().getName() + ":: Waiting for acquiring permit" + ANSI_RESET);
+
             semaphore.acquire();
+
             System.out.println(GREEN_BACKGROUND + Thread.currentThread().getName() + ":: Acquired permit" + ANSI_RESET);
             TimeUnit.SECONDS.sleep(5);
             int num = new Random().nextInt(100);
             System.out.println(Thread.currentThread().getName() + ":: generated number : " + num);
+
             semaphore.release();
+
             System.out.println(GREEN_BACKGROUND + Thread.currentThread().getName() + ":: Released permit" + ANSI_RESET);
         } catch (InterruptedException e) {
             System.out.println(Thread.currentThread().getName() + ":: is interrupted");
