@@ -2,7 +2,9 @@ package com.learning.java.Threads.Locks;
 
 import com.learning.practice.vo.Employee;
 
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
@@ -45,5 +47,15 @@ public class DriverClass {
         employee.setDept(department);
         writeLock.unlock();
         System.out.println(Thread.currentThread().getName() + ":: Released write lock");
+    }
+
+    public int getNum() throws InterruptedException {
+        Lock lock = new ReentrantLock();
+        Condition con = lock.newCondition();
+        con.await();
+        con.signal();
+        con.awaitUninterruptibly();
+
+        return 1;
     }
 }

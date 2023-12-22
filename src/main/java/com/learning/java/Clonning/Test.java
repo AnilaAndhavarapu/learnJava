@@ -6,7 +6,7 @@ import java.util.UUID;
 
 public class Test {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
         Product product1 = new Product(UUID.randomUUID(), "Bottle", 100.00);
         List<String> features = new ArrayList<>();
         features.add("Capacity 1 litre");
@@ -17,7 +17,7 @@ public class Test {
 
         System.out.println("Product 1 : " + product1);
 
-        Product product2 = product1.clone();
+        Product product2 = (Product) product1.clone();
         product2.setPrice(200.00);
         product2.getProductFeatures().set(1, "Can withstand temp from -10c to 150c");
         System.out.println("Product 1 : " + product2);

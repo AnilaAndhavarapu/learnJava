@@ -1,0 +1,13 @@
+SOLID
+
+S - Single responsibility principle
+O - open closed principle
+L - Liskov substitution principle
+I - Interface segregation principle
+D - Dependency inversion principle
+
+S - A class should have only one responsibility / There should be only one reason to change the class
+O - Classes should be open for extension and closed for modification
+L - Subclasses should be able to substitute parent class in any existing functionality without breaking
+I - Interfaces should be broken to segregate the responsibilities
+D - Concrete class classes should be replaced with interfaces / Dependency injection / Inversion of control

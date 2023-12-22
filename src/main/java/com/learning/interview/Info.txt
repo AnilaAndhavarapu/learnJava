@@ -1,0 +1,10 @@
+Access modifiers
+
+    private --> same class
+    default --> same package
+    protected --> subclass in different package
+    public --> all
+
+Exception
+
+

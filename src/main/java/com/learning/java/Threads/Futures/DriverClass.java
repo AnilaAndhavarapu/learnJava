@@ -24,9 +24,8 @@ public class DriverClass {
            TimeUnit.SECONDS.sleep(1); // Same as Thread.sleep(1000)
            System.out.println(Thread.currentThread().getName() + ":: Waiting for future result");
        }
-        int value = futureTask.get();
+        Integer value = futureTask.get();
         System.out.println(Thread.currentThread().getName() + ":: Future result : " + value);
-
     }
 }
 

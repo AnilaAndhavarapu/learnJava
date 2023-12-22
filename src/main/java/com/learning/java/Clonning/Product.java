@@ -55,19 +55,6 @@ public class Product implements Cloneable{
     }
 
     @Override
-    public Product clone(){
-        Product product = new Product();
-        product.name = this.name;
-        product.category = this.category;
-        product.price = this.price;
-        product.id = UUID.randomUUID();
-        if (Objects.nonNull(this.productFeatures)){
-            product.productFeatures = new ArrayList<>(this.productFeatures);
-        }
-        return product;
-    }
-
-    @Override
     public String toString() {
         return "Product{" +
                 "id=" + id +
@@ -76,5 +63,11 @@ public class Product implements Cloneable{
                 ", category='" + category + '\'' +
                 ", productFeatures=" + productFeatures +
                 '}';
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException
+    {
+        return super.clone();
     }
 }
